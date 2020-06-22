@@ -47,7 +47,7 @@ class FirstFragment : Fragment() {
 
 
         val view = inflater.inflate(R.layout.fragment_first, container, false)
-        val description = view.findViewById<TextView>(R.id.textview_first)
+        val description = view.findViewById<TextView>(R.id.textview_second)
         description.text = list!![0].descrition
 
        // print(list!!.size)
