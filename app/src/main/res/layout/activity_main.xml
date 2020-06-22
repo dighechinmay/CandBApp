@@ -6,13 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="15dp">
     <RelativeLayout
+        android:id="@+id/button_first"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_margin="30dp"
         android:background="@drawable/button_switch"
-        android:onClick="switchFragment">
+        android:onClick="switchFragmentOne"
+        android:padding="15dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,10 +26,33 @@
             android:fontFamily="monospace"
             android:gravity="center"
             android:text="@string/button_one"
+            android:textColor="#FFFEFE"
             android:textSize="14sp">
 
         </TextView>
     </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/button_second"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_not_selected"
+        android:onClick="switchFragmentTwo"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="@string/button_two_text"
+            android:textColor="#271B1B"
+            android:textSize="14sp">
+
+        </TextView>
+    </RelativeLayout>
+</LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -34,10 +62,20 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    <include
-        layout="@layout/content_main"
+    <!--<fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="200dp" />
+        app:defaultNavHost="true"
+
+        app:navGraph="@navigation/nav_graph" />-->
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp">
+    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

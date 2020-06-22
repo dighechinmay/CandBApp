@@ -1,15 +1,15 @@
 package com.chinmay.testapp
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,18 +17,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // setSupportActionBar(toolbar)
+        val firstFragment = FirstFragment()
 
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show()
-//        }
+        supportFragmentManager.inTransactionOne {
+            add(R.id.fragment_container, firstFragment) }
+
+
+    }
+
+    fun switchFragmentTwo(view: View){
+
     }
 
 
-    fun switchFragment(view: View){
 
+    fun switchFragmentOne(view: View){
 
+        val secondFragment = SecondFragment()
+
+        supportFragmentManager.inTransactionTwo {
+            add(R.id.fragment_container, secondFragment)
+        }
+
+        button_first.setBackgroundResource(R.drawable.button_not_selected)
+        button_second.setBackgroundResource(R.drawable.button_switch)
 
     }
 
