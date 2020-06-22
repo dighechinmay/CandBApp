@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.chinmay.testapp.BASE_URL
 import com.chinmay.testapp.R
+import com.chinmay.testapp.adapter.TestListAdapter
 import com.chinmay.testapp.models.TestDataModel
 import com.chinmay.testapp.network.TestApi
 import kotlinx.android.synthetic.main.fragment_first.*
+import kotlinx.android.synthetic.main.fragment_first.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,6 +27,9 @@ import retrofit2.converter.gson.GsonConverterFactory
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class FirstFragment : Fragment() {
+
+    private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var adapter: TestListAdapter
 
     companion object {
         fun newInstance(myList : ArrayList<TestDataModel.Tests>): FirstFragment {
@@ -36,7 +42,6 @@ class FirstFragment : Fragment() {
     }
 
 
-
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -44,14 +49,11 @@ class FirstFragment : Fragment() {
         // Inflate the layout for this fragment
         var list = arguments?.getParcelableArrayList<TestDataModel.Tests>("list")
 
-
-
         val view = inflater.inflate(R.layout.fragment_first, container, false)
-        val description = view.findViewById<TextView>(R.id.textview_second)
-        description.text = list!![0].descrition
-
-       // print(list!!.size)
-        Log.i("size", list!![0].toString())
+        linearLayoutManager = LinearLayoutManager(context)
+        view.recyclerView1.layoutManager = linearLayoutManager
+        adapter = TestListAdapter(list as ArrayList<TestDataModel.Tests>)
+        view.recyclerView1.adapter = adapter
 
         return view
     }
