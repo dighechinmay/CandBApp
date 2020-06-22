@@ -54,16 +54,23 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        call.enqueue(object: Callback<List<TestDataModel.Response>>{
-            override fun onFailure(call: Call<List<TestDataModel.Response>>, t: Throwable) {
-                Log.i("error",t.message)
+        call.enqueue(object: Callback<ArrayList<TestDataModel.Tests>>{
+            override fun onFailure(call: Call<ArrayList<TestDataModel.Tests>>, t: Throwable) {
+               // Log.i("error",t.message)
             }
 
             override fun onResponse(
-                call: Call<List<TestDataModel.Response>>,
-                response: Response<List<TestDataModel.Response>>
+                call: Call<ArrayList<TestDataModel.Tests>>,
+                response: Response<ArrayList<TestDataModel.Tests>>
             ) {
-                Log.i("response",response.body()!!.size.toString())
+
+                //Log.i("message",response.body()!!.size.toString())
+
+                val fragment = FirstFragment.newInstance(response.body()!!)
+                supportFragmentManager.inTransactionOne {
+                add(R.id.fragment_container, fragment) }
+
+
             }
         })
 

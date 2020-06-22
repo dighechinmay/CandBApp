@@ -9,7 +9,7 @@ interface TestApi {
 
 
     @GET("{extension}")
-    fun getTests(@Path("extension") type: String): Call<List<TestDataModel.Response>>
+    fun getTests(@Path("extension") type: String): Call<ArrayList<TestDataModel.Tests>>
 
 
 }
