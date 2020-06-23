@@ -6,4 +6,7 @@
     <color name="cardBackgroundColor">#ECF4F3</color>
     <color name="test_heading">#2F2F2F</color>
     <color name="sub_text">#898989</color>
+    <color name="selected">#FFFEFE</color>
+    <color name="deselected">#271B1B</color>
+
 </resources>

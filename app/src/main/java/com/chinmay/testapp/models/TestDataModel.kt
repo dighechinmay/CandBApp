@@ -7,12 +7,6 @@ import kotlin.collections.ArrayList
 
 class TestDataModel {
 
-//    data class Response(
-//
-//        val tests: ArrayList<Tests>
-//    )
-
-
     data class Tests(
 
         val title: String,
