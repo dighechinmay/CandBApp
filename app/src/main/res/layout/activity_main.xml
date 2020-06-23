@@ -11,15 +11,16 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_margin="15dp">
+
     <RelativeLayout
         android:id="@+id/button_first"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_switch"
+        android:background="@drawable/button_selected"
         android:padding="15dp">
 
         <TextView
-            android:id="@+id/school_button"
+            android:id="@+id/schoollevel_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -40,14 +41,14 @@
         android:layout_marginLeft="10dp">
 
         <TextView
-            android:id="@+id/class_button"
+            android:id="@+id/classlevel_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="monospace"
             android:gravity="center"
             android:text="@string/button_two_text"
-            android:textColor="@color/deselected"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="14sp">
 
         </TextView>

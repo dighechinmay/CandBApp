@@ -47,7 +47,7 @@ class TestListAdapter(private val testList:ArrayList<TestDataModel.Tests>): Recy
 
             view.test_heading.text = test.title
             view.section_textView.text = test.standard+"th "+test.section
-            view.createDate_textView.text = formatDate(test.createdDate)
+            view.createDate_textView.text = formatTime(test.createdDate)
             view.eventDate_textView.text = "On "+ formatDate(test.eventDate)
 
 
@@ -60,6 +60,16 @@ class TestListAdapter(private val testList:ArrayList<TestDataModel.Tests>): Recy
 
             val formatter = DateTimeFormatter.ofPattern("d MMM")
            // val formatter = DateTimeFormatter.ofPattern("h:mm a")
+
+            return current.format(formatter)
+        }
+
+        @RequiresApi(Build.VERSION_CODES.O)
+        fun formatTime(date: Long):String{
+
+            val current = LocalDateTime.now()
+
+            val formatter = DateTimeFormatter.ofPattern("h:mm a")
 
             return current.format(formatter)
         }

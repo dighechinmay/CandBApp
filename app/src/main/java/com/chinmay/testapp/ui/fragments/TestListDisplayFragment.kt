@@ -16,14 +16,13 @@ import com.chinmay.testapp.R
 import com.chinmay.testapp.adapter.TestListAdapter
 import com.chinmay.testapp.models.TestDataModel
 import kotlinx.android.synthetic.main.fragment_first.*
-import kotlinx.android.synthetic.main.fragment_first.view.*
 import kotlinx.android.synthetic.main.fragment_first.view.recyclerView1
 
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class TestListDisplayFragment : Fragment() {
 
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var adapter: TestListAdapter
@@ -124,10 +123,10 @@ class FirstFragment : Fragment() {
 
 
     companion object {
-        fun newInstance(myList : ArrayList<TestDataModel.Tests>): FirstFragment {
+        fun newInstance(testList : ArrayList<TestDataModel.Tests>): TestListDisplayFragment {
             val args = Bundle()
-            args.putParcelableArrayList("list",myList);
-            val fragment = FirstFragment()
+            args.putParcelableArrayList("list",testList);
+            val fragment = TestListDisplayFragment()
             fragment.arguments = args
             return fragment
         }
